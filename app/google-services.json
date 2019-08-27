@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "894616005629",
+    "firebase_url": "https://m240-range.firebaseio.com",
+    "project_id": "m240-range",
+    "storage_bucket": "m240-range.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894616005629:android:d2c5a349fc1f6e88",
+        "android_client_info": {
+          "package_name": "com.example.m240range"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894616005629-itoct47hlgo83pp3shko5algfcmr8j3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa8OBv-a5CChiydcRR3Yive3mnIQ_TLyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894616005629-itoct47hlgo83pp3shko5algfcmr8j3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
