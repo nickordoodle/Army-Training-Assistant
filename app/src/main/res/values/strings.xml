@@ -3,12 +3,13 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="new_range">New Range</string>
     <string name="saved_ranges">Saved Ranges</string>
+    <string name="new_shooter">New</string>
     <string name="scores">Scores</string>
     <string name="qualification">Qualification</string>
     <string name="title_activity_saved_ranges">SavedRangesActivity</string>
 
     <string name="footer">All information extracted from TC 3-22.240.\n
-        Made by Soldiers</string>
+        Created for Soldiers, Made by Soldiers</string>
 
     <string name="large_text">
 
