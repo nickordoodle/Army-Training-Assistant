@@ -17,6 +17,9 @@ import com.example.m240range.R;
 /**
  * A Scores fragment containing a simple view.
  */
+
+//TODO Add string resources for layout file
+    //TODO Inmplement amazon backend to link and edit data
 public class NewShooterFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
@@ -29,6 +32,8 @@ public class NewShooterFragment extends Fragment {
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
         return fragment;
+
+
     }
 
     @Override
@@ -47,13 +52,6 @@ public class NewShooterFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.new_shooter_fragment_layout, container, false);
-        final TextView textView = root.findViewById(R.id.new_shooter_text_holder);
-        pageViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }

@@ -47,13 +47,6 @@ public class QualificationFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.qualification_fragment_layout, container, false);
-        final TextView textView = root.findViewById(R.id.qualification_text_holder);
-        pageViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }

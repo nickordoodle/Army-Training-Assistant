@@ -8,6 +8,17 @@
     <string name="qualification">Qualification</string>
     <string name="title_activity_saved_ranges">SavedRangesActivity</string>
 
+    /*
+    Strings for the new Shooter fragment
+    */
+    <string name="last_name">last name</string>
+    <string name="first_name">first name</string>
+    <string name="rank">rank</string>
+    <string name="company">company</string>
+    <string name="battalion">battalion</string>
+    <string name="score">score</string>
+
+
     <string name="footer">All information extracted from TC 3-22.240.\n
         Created for Soldiers, Made by Soldiers</string>
 
