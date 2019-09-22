@@ -28,6 +28,11 @@
     </string-array>
 
 
+    /* Strings needed for scores fragment */
+    <string name="save">Save</string>
+    <string name="erase_all">Erase All</string>
+
+
 
     <string name="footer">All information extracted from TC 3-22.240.\n
         Created for Soldiers, Made by Soldiers</string>
