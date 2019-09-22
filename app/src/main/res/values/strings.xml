@@ -17,6 +17,16 @@
     <string name="company">company</string>
     <string name="battalion">battalion</string>
     <string name="score">score</string>
+    <string name="submit">Submit</string>
+
+    <string name="weapon_system_prompt">choose weapon system</string>
+
+    // Spinner options for weapon system
+    <string-array name="weapon_system_array">
+        <item>M240</item>
+        <item>M249</item>
+    </string-array>
+
 
 
     <string name="footer">All information extracted from TC 3-22.240.\n
