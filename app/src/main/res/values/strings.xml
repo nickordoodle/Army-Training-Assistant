@@ -13,11 +13,43 @@
     */
     <string name="last_name">last name</string>
     <string name="first_name">first name</string>
-    <string name="rank">rank</string>
     <string name="company">company</string>
     <string name="battalion">battalion</string>
     <string name="score">score</string>
     <string name="submit">Submit</string>
+
+    <string name="rank_prompt">choose rank</string>
+
+    // Spinner options for ranks
+    <string-array name="rank_array">
+        <item>PVT</item>
+        <item>PV2</item>
+        <item>PFC</item>
+        <item>SPC</item>
+        <item>CPL</item>
+        <item>SGT</item>
+        <item>SSG</item>
+        <item>SFC</item>
+        <item>MSG</item>
+        <item>1SG</item>
+        <item>SGM</item>
+        <item>CSM</item>
+        <item>WO1</item>
+        <item>CW2</item>
+        <item>CW3</item>
+        <item>CW4</item>
+        <item>CW5</item>
+        <item>2LT</item>
+        <item>1LT</item>
+        <item>CPT</item>
+        <item>MAJ</item>
+        <item>LTC</item>
+        <item>COL</item>
+        <item>BG</item>
+        <item>MG</item>
+        <item>LTG</item>
+        <item>GEN</item>
+    </string-array>
 
     <string name="weapon_system_prompt">choose weapon system</string>
 

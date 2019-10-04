@@ -33,17 +33,6 @@
 
 
     <EditText
-        android:id="@+id/rank"
-        android:hint="@string/rank"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin" />
-
-
-    <EditText
         android:id="@+id/company_edittext"
         android:hint="@string/company"
         android:layout_width="match_parent"
@@ -69,18 +58,39 @@
         android:inputType="text"
         android:maxLines="1"/>
 
-    <Spinner
-        android:id="@+id/weapon_system_spinner"
-        android:prompt="@string/weapon_system_prompt"
-        android:entries="@array/weapon_system_array"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:inputType="number"
-        android:maxLines="1"/>
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/rank_spinner"
+            android:layout_weight="1"
+            android:prompt="@string/rank_prompt"
+            android:entries="@array/rank_array"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin" />
+
+
+        <Spinner
+            android:id="@+id/weapon_system_spinner"
+            android:layout_weight="1"
+            android:prompt="@string/weapon_system_prompt"
+            android:entries="@array/weapon_system_array"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:inputType="number"
+            android:maxLines="1"/>
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/shooter_score_edittext"
