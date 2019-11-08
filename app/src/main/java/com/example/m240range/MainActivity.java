@@ -1,5 +1,6 @@
 package com.example.m240range;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.example.m240range.ui.main.ScoresFragment;
@@ -19,6 +20,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String PACKAGE_NAME;
+    public static Context CONTEXT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-
+        CONTEXT = getApplicationContext();
+        PACKAGE_NAME = getApplicationContext().getPackageName();
 
     }
 }
