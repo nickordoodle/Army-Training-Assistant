@@ -1,14 +1,12 @@
 package com.example.m240range.ui.main;
 
-import android.graphics.Bitmap;
-import android.graphics.pdf.PdfRenderer;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.m240range.R;
 import com.github.barteksc.pdfviewer.PDFView;
@@ -16,21 +14,21 @@ import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
 import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
 import com.github.barteksc.pdfviewer.listener.OnPageErrorListener;
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
-import java.io.File;
-import java.util.ArrayList;
 
 /**
  * A Scores fragment containing a simple view.
  */
-public class QualificationFragment extends Fragment implements OnPageChangeListener, OnLoadCompleteListener,
+public class RegulationFragment extends Fragment implements OnPageChangeListener, OnLoadCompleteListener,
         OnPageErrorListener {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private static final String FILE_NAME = "m240_qual.pdf";
     private PDFView pdfView;
+    private Button m240_button;
+    private Button m249_button;
 
-    public static QualificationFragment newInstance(int index) {
-        QualificationFragment fragment = new QualificationFragment();
+    public static RegulationFragment newInstance(int index) {
+        RegulationFragment fragment = new RegulationFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);

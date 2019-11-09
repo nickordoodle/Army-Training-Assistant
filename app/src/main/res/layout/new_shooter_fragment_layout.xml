@@ -106,7 +106,7 @@
 
     <Button
         android:id="@+id/submit_shooter_button"
-        android:text="@string/submit"
+        android:text="@string/add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
