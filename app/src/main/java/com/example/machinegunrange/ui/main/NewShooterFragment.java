@@ -1,17 +1,28 @@
 package com.example.machinegunrange.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.machinegunrange.MainActivity;
 import com.example.machinegunrange.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * A Scores fragment containing a simple view.
@@ -28,8 +39,11 @@ public class NewShooterFragment extends Fragment {
     private EditText lastNameEditText;
     private EditText firstNameEditText;
     private EditText companyEditText;
+    private EditText battalionEditText;
+    private Spinner rankSpinner;
+    private Spinner weaponSpinner;
+    private EditText scoreEditText;
     private Button submitButton;
-
 
 
     public static NewShooterFragment newInstance(int index) {
@@ -60,16 +74,64 @@ public class NewShooterFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.new_shooter_fragment_layout, container, false);
 
-        submitButton = (Button) root.findViewById(R.id.submit_shooter_button);
+        instantiateInputFields(root);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //validate all inputs and then submit and populate array
+                if(validateInput()){
+
+                    Map<String, Object> newShooter = new HashMap<>();
+                    newShooter.put("Last Name", lastNameEditText.getText().toString());
+                    newShooter.put("First Name", firstNameEditText.getText().toString());
+                    newShooter.put("Company", companyEditText.getText().toString());
+                    newShooter.put("Battalion", battalionEditText.getText().toString());
+                    newShooter.put("Rank", rankSpinner.getSelectedItem().toString());
+                    newShooter.put("Weapon System", weaponSpinner.getSelectedItem().toString());
+                    newShooter.put("Score", scoreEditText.getText().toString());
+
+                    MainActivity.db.collection("Firers")
+                            .add(newShooter)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Error adding document", e);
+                                }
+                            });
+                }
+
             }
         });
 
         return root;
+    }
+
+    private void instantiateInputFields(View root){
+
+        lastNameEditText = root.findViewById(R.id.last_name_edittext);
+        firstNameEditText = root.findViewById(R.id.first_name_edittext);
+        companyEditText = root.findViewById(R.id.company_edittext);
+        battalionEditText = root.findViewById(R.id.battalion_edittext);
+        rankSpinner = root.findViewById(R.id.rank_spinner);
+        weaponSpinner = root.findViewById(R.id.weapon_system_spinner);
+        scoreEditText = root.findViewById(R.id.shooter_score_edittext);
+        submitButton = root.findViewById(R.id.submit_shooter_button);
+
+    }
+
+
+    private boolean validateInput(){
+
+        //TODO Implement simple checks for the text and input fields
+
+        return true;
     }
 
 

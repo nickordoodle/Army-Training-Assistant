@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "894616005629",
-    "firebase_url": "https://m240-range.firebaseio.com",
-    "project_id": "m240-range",
-    "storage_bucket": "m240-range.appspot.com"
+    "project_number": "466923827315",
+    "firebase_url": "https://machine-gun-range.firebaseio.com",
+    "project_id": "machine-gun-range",
+    "storage_bucket": "machine-gun-range.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:894616005629:android:d2c5a349fc1f6e88",
+        "mobilesdk_app_id": "1:466923827315:android:603e96d9fc20c790737a06",
         "android_client_info": {
-          "package_name": "com.example.m240range"
+          "package_name": "com.example.machinegunrange"
         }
       },
       "oauth_client": [
         {
-          "client_id": "894616005629-itoct47hlgo83pp3shko5algfcmr8j3k.apps.googleusercontent.com",
+          "client_id": "466923827315-efibv1jj1rp7hi2pubst5v8v4kooj64c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBa8OBv-a5CChiydcRR3Yive3mnIQ_TLyA"
+          "current_key": "AIzaSyCFv--fDJ_XvB8O44ADBUl2kSHxwwj4Hdc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "894616005629-itoct47hlgo83pp3shko5algfcmr8j3k.apps.googleusercontent.com",
+              "client_id": "466923827315-efibv1jj1rp7hi2pubst5v8v4kooj64c.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -22,6 +22,24 @@
     <string name="rank_prompt">choose rank</string>
 
     // Spinner options for ranks
+    <string name="weapon_system_prompt">choose weapon system</string>
+
+    <string name="save">Save</string>
+
+    // Spinner options for weapon system
+    <string name="erase_all">Erase All</string>
+
+
+    /* Strings needed for scores fragment */
+    <string name="m240_reg">M240</string>
+    <string name="m249_reg">M249</string>
+
+    /* Qualification fragment strings */
+    <string name="footer">All information extracted from TC 3-22.240.\n
+        Created for Soldiers, Made by Soldiers</string>
+    <string name="action_settings">Settings</string>
+
+    /* Misc. strings required */
     <string-array name="rank_array">
         <item>PVT</item>
         <item>PV2</item>
@@ -51,26 +69,8 @@
         <item>LTG</item>
         <item>GEN</item>
     </string-array>
-
-    <string name="weapon_system_prompt">choose weapon system</string>
-
-    // Spinner options for weapon system
     <string-array name="weapon_system_array">
         <item>M240</item>
         <item>M249</item>
     </string-array>
-
-
-    /* Strings needed for scores fragment */
-    <string name="save">Save</string>
-    <string name="erase_all">Erase All</string>
-
-    /* Qualification fragment strings */
-    <string name="m240_reg">M240</string>
-    <string name="m249_reg">M249</string>
-
-    /* Misc. strings required */
-    <string name="footer">All information extracted from TC 3-22.240.\n
-        Created for Soldiers, Made by Soldiers</string>
-    <string name="action_settings">Settings</string>
 </resources>
