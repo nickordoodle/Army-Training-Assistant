@@ -1,4 +1,4 @@
-package com.example.m240range.ui.main;
+package com.example.machinegunrange.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

@@ -1,4 +1,4 @@
-package com.example.m240range.ui.main;
+package com.example.machinegunrange.ui.main;
 
 import android.content.Context;
 import androidx.annotation.Nullable;
@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.m240range.R;
+import com.example.machinegunrange.R;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

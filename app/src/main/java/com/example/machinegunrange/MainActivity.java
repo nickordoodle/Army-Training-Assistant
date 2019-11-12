@@ -1,22 +1,13 @@
-package com.example.m240range;
+package com.example.machinegunrange;
 
 import android.content.Context;
 import android.os.Bundle;
 
-import com.example.m240range.ui.main.ScoresFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
 
-import com.example.m240range.ui.main.SectionsPagerAdapter;
-
-import java.util.HashMap;
-import java.util.List;
+import com.example.machinegunrange.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

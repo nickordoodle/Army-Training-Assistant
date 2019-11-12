@@ -1,4 +1,4 @@
-package com.example.m240range;
+package com.example.machinegunrange;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

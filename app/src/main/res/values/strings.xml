@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">M240 Range</string>
+    <string name="app_name">Machine Gun Range</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="new_range">New Range</string>
     <string name="saved_ranges">Saved Ranges</string>

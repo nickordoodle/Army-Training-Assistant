@@ -1,4 +1,4 @@
-package com.example.m240range.ui.main;
+package com.example.machinegunrange.ui.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.m240range.CustomExpandableListAdapter;
-import com.example.m240range.MachineGunner;
-import com.example.m240range.R;
+import com.example.machinegunrange.CustomExpandableListAdapter;
+import com.example.machinegunrange.MachineGunner;
+import com.example.machinegunrange.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;

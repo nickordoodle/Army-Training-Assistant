@@ -1,4 +1,4 @@
-package com.example.m240range;
+package com.example.machinegunrange;
 
 import org.junit.Test;
 
