@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -18,17 +18,15 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 /**
  * A Scores fragment containing a simple view.
  */
-public class RegulationFragment extends Fragment implements OnPageChangeListener, OnLoadCompleteListener,
+public class M240Fragment extends Fragment implements OnPageChangeListener, OnLoadCompleteListener,
         OnPageErrorListener {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
     private static final String FILE_NAME = "m240_qual.pdf";
     private PDFView pdfView;
-    private Button m240_button;
-    private Button m249_button;
 
-    public static RegulationFragment newInstance(int index) {
-        RegulationFragment fragment = new RegulationFragment();
+    public static M240Fragment newInstance(int index) {
+        M240Fragment fragment = new M240Fragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -46,7 +44,7 @@ public class RegulationFragment extends Fragment implements OnPageChangeListener
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.qualification_fragment_layout, container, false);
+        View root = inflater.inflate(R.layout.m240_fragment_layout, container, false);
 
         //set PDFview and read in pdf from asset using third party library
         pdfView = root.findViewById(R.id.pdfView);

@@ -16,7 +16,7 @@ import com.example.m240range.R;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.new_shooter, R.string.scores, R.string.regulation};
+    private static final int[] TAB_TITLES = new int[]{R.string.new_shooter, R.string.scores, R.string.m240_reg, R.string.m249_reg};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -34,7 +34,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         else if(position == 1)
             return ScoresFragment.newInstance(position + 1);
         else if (position == 2)
-            return RegulationFragment.newInstance(position + 1);
+            return M240Fragment.newInstance(position + 1);
+        else if (position == 3)
+            return M249Fragment.newInstance(position + 1);
 
         return null;
     }
@@ -47,7 +49,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 3 total pages.
-        return 3;
+        // Show 4 total pages.
+        return 4;
     }
 }
