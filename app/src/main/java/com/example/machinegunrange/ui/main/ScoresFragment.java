@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.machinegunrange.CustomExpandableListAdapter;
 import com.example.machinegunrange.MachineGunner;
+import com.example.machinegunrange.MainActivity;
 import com.example.machinegunrange.R;
 
 import java.util.ArrayList;
@@ -63,28 +64,8 @@ public class ScoresFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        MachineGunner gunnerOne = new MachineGunner("johnson", "nick",
-                "BCO"
-                ,"2nd Inf"
-                , "1LT"
-                , "M249"
-                , 157);
-
-        MachineGunner gunnerTwo = new MachineGunner("morty", "rick",
-                "ACO"
-                ,"2nd Inf"
-                , "SGT"
-                , "M240"
-                , 130);
-
-        ArrayList<MachineGunner> adapterDataList = new ArrayList<>();
-        adapterDataList.add(gunnerOne);
-        adapterDataList.add(gunnerTwo);
-
         listView = (ExpandableListView) view.findViewById(R.id.scores_expandable_listview);
-        ExpandableListAdapter listAdapter = new CustomExpandableListAdapter(getContext(),
-                adapterDataList);
-        listView.setAdapter(listAdapter);
+        listView.setAdapter(MainActivity.machineGunnerListAdapter);
         listView.setGroupIndicator(null);
 
     }
