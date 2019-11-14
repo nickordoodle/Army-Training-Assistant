@@ -17,6 +17,7 @@ import com.example.machinegunrange.MainActivity;
 import com.example.machinegunrange.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 
 import java.util.HashMap;
@@ -43,7 +44,7 @@ public class NewShooterFragment extends Fragment {
     private Spinner rankSpinner;
     private Spinner weaponSpinner;
     private EditText scoreEditText;
-    private Button submitButton;
+    private MaterialButton submitButton;
 
 
     public static NewShooterFragment newInstance(int index) {

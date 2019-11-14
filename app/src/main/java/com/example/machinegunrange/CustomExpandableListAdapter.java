@@ -132,7 +132,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int listPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
-        String listTitle = this.expandableListMachineGunner
+        String rank = this.expandableListMachineGunner
+                .get(listPosition)
+                .getRank();
+        String lastName = this.expandableListMachineGunner
                 .get(listPosition)
                 .getLastName();
         if (convertView == null) {
@@ -140,10 +143,17 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_group, null);
         }
-        TextView listTitleTextView = (TextView) convertView
-                .findViewById(R.id.list_title_textview);
-        listTitleTextView.setTypeface(null, Typeface.BOLD);
-        listTitleTextView.setText(listTitle);
+        //Set rank values
+        TextView rankTextView = (TextView) convertView
+                .findViewById(R.id.rank_textview);
+        rankTextView.setTypeface(null, Typeface.BOLD);
+        rankTextView.setText(rank);
+
+        //Set last name values
+        TextView lastNameTextView = (TextView) convertView
+                .findViewById(R.id.last_name_textview);
+        lastNameTextView.setTypeface(null, Typeface.BOLD);
+        lastNameTextView.setText(lastName);
         return convertView;
     }
 
