@@ -2,6 +2,7 @@ package com.example.machinegunrange;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Message;
 import android.util.Log;
 import android.widget.ExpandableListAdapter;
 
@@ -12,12 +13,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.machinegunrange.ui.main.SectionsPagerAdapter;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -25,7 +31,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.crypto.Mac;
+
 import static android.content.ContentValues.TAG;
+import static com.google.firebase.firestore.DocumentChange.Type.MODIFIED;
+import static com.google.firebase.firestore.DocumentChange.Type.REMOVED;
+import static com.google.firebase.firestore.core.DocumentViewChange.Type.ADDED;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,6 +91,26 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+
+        //Handle changes and updates to data
+        db.collection("Firers").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot snapShots,
+                                @Nullable FirebaseFirestoreException e) {
+
+                machineGunnerArrayList.clear();
+
+                for (DocumentSnapshot shot : snapShots) {
+                    machineGunnerArrayList.add(shot.toObject(MachineGunner.class));
+                    updateList();
+                }
+
+            }
+
+
+        });
+
 
 
         Log.d("ADAPTER", "CREATED");
