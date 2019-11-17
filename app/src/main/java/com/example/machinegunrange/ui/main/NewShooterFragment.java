@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.machinegunrange.MachineGunner;
 import com.example.machinegunrange.MainActivity;
 import com.example.machinegunrange.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
+import static com.example.machinegunrange.MainActivity.machineGunnerArrayList;
 
 /**
  * A Scores fragment containing a simple view.
@@ -83,14 +85,15 @@ public class NewShooterFragment extends Fragment {
                 //validate all inputs and then submit and populate array
                 if(validateInput()){
 
-                    Map<String, Object> newShooter = new HashMap<>();
-                    newShooter.put("Last Name", lastNameEditText.getText().toString());
-                    newShooter.put("First Name", firstNameEditText.getText().toString());
-                    newShooter.put("Company", companyEditText.getText().toString());
-                    newShooter.put("Battalion", battalionEditText.getText().toString());
-                    newShooter.put("Rank", rankSpinner.getSelectedItem().toString());
-                    newShooter.put("Weapon System", weaponSpinner.getSelectedItem().toString());
-                    newShooter.put("Score", scoreEditText.getText().toString());
+                    MachineGunner newShooter = new MachineGunner(
+                            lastNameEditText.getText().toString(),
+                            firstNameEditText.getText().toString(),
+                            companyEditText.getText().toString(),
+                            battalionEditText.getText().toString(),
+                            rankSpinner.getSelectedItem().toString(),
+                            weaponSpinner.getSelectedItem().toString(),
+                            Integer.parseInt(scoreEditText.getText().toString())
+                    );
 
                     MainActivity.db.collection("Firers")
                             .add(newShooter)
@@ -106,6 +109,9 @@ public class NewShooterFragment extends Fragment {
                                     Log.w(TAG, "Error adding document", e);
                                 }
                             });
+
+                    ((MainActivity) getActivity()).updateList();
+
                 }
 
             }

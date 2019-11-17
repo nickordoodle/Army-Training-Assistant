@@ -1,5 +1,7 @@
 package com.example.machinegunrange;
 
+import androidx.annotation.NonNull;
+
 public class MachineGunner {
 
     private String lastName;
@@ -9,6 +11,11 @@ public class MachineGunner {
     private String rank;
     private String weaponSystem;
     private int score;
+
+    public MachineGunner() {
+
+    }
+
 
     public MachineGunner(String lastName, String firstName,
                          String company, String battalion,
@@ -77,6 +84,15 @@ public class MachineGunner {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        String result = "MACHINE GUNNER DATA: " + lastName + "   " + firstName + "   " + rank +
+                "   " + weaponSystem + "    " + battalion + "   " + company +
+                score;
+        return result;
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.machinegunrange.ui.main;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +27,7 @@ import java.util.List;
 public class ScoresFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-    ExpandableListView listView;
-    ExpandableListAdapter listViewAdapter;
-    List<String> expandableListTitle;
-    HashMap<String, List<String>> expandableListDetail;
-
+    public static ExpandableListView listView;
     private PageViewModel pageViewModel;
 
     public static ScoresFragment newInstance(int index) {
@@ -63,10 +60,11 @@ public class ScoresFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        Log.d("SCORES ", "LIST STARTED");
         listView = (ExpandableListView) view.findViewById(R.id.scores_expandable_listview);
         listView.setAdapter(MainActivity.machineGunnerListAdapter);
         listView.setGroupIndicator(null);
+
 
     }
 
