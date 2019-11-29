@@ -61,6 +61,8 @@ public class ScoresFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.d("SCORES ", "LIST STARTED");
+
+        //TODO fix list adapter to and set it earlier so updates are made or pass it through each time
         listView = (ExpandableListView) view.findViewById(R.id.scores_expandable_listview);
         listView.setAdapter(MainActivity.machineGunnerListAdapter);
         listView.setGroupIndicator(null);

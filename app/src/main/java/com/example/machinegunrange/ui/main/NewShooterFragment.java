@@ -109,9 +109,6 @@ public class NewShooterFragment extends Fragment {
                                     Log.w(TAG, "Error adding document", e);
                                 }
                             });
-
-                    ((MainActivity) getActivity()).updateList();
-
                 }
 
             }
