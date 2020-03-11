@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
 import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 
+import com.example.machinegunrange.ui.main.ScoresFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -65,9 +67,11 @@ public class MainActivity extends AppCompatActivity {
                 machineGunnerArrayList);
 
 
+
         //TODO update list from range and database
         //TODO fix query problem, cannot pull data at moment
         //Initial query request here
+        /*
         db.collection("Firers")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-
+*/
 
         //Handle changes and updates to data
         db.collection("Firers").addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -103,13 +107,21 @@ public class MainActivity extends AppCompatActivity {
 
                 for (DocumentSnapshot shot : snapShots) {
                     machineGunnerArrayList.add(shot.toObject(MachineGunner.class));
-                    updateList();
                 }
+
+                updateList();
 
             }
 
 
         });
+
+        //TODO remove below and consider using recycler view implementation and firebases guided recommendations
+        /*
+        ScoresFragment.listView = (ExpandableListView) findViewById(R.id.scores_expandable_listview);
+        ScoresFragment.listView.setAdapter(MainActivity.machineGunnerListAdapter);
+        ScoresFragment.listView.setGroupIndicator(null);
+*/
 
         Log.d("ADAPTER", "CREATED");
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());

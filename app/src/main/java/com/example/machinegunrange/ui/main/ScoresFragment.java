@@ -67,7 +67,6 @@ public class ScoresFragment extends Fragment {
         listView.setAdapter(MainActivity.machineGunnerListAdapter);
         listView.setGroupIndicator(null);
 
-
     }
 
 }
