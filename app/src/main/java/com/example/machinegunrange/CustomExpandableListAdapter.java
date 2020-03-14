@@ -72,25 +72,33 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
             // case statements
             // values must be of same type of expression
             case 0 :
-                expandedListText = currentGunner.getRank();
+                String rank = "Rank: ";
+                expandedListText = rank + currentGunner.getRank();
                 break;
             case 1 :
-                expandedListText = currentGunner.getLastName();
+                String lastName = "Last Name: ";
+                expandedListText = lastName + currentGunner.getLastName();
                 break;
             case 2 :
-                expandedListText = currentGunner.getFirstName();
+                String firstName = "First Name: ";
+                expandedListText = firstName + currentGunner.getFirstName();
                 break;
             case 3 :
-                expandedListText = currentGunner.getBattalion();
+                String battalion = "Battalion: ";
+                expandedListText = battalion + currentGunner.getBattalion();
                 break;
             case 4 :
-                expandedListText = currentGunner.getCompany();
+                String company = "Company: ";
+                expandedListText = company + currentGunner.getCompany();
                 break;
             case 5 :
-                expandedListText = currentGunner.getWeaponSystem();
+                String wpn = "Weapon System: ";
+                expandedListText = wpn + currentGunner.getWeaponSystem();
                 break;
             case 6 :
-                expandedListText = Integer.toString(currentGunner.getScore());
+                String score = "Score: ";
+                String scoretoText = Integer.toString(currentGunner.getScore());
+                expandedListText = score + scoretoText;
                 break;
             default:
                 expandedListText = null;
