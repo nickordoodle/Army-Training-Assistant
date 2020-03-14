@@ -2,12 +2,14 @@ package com.example.machinegunrange.ui.main;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -46,7 +48,7 @@ public class NewShooterFragment extends Fragment {
     private Spinner rankSpinner;
     private Spinner weaponSpinner;
     private EditText scoreEditText;
-    private MaterialButton submitButton;
+    private MaterialButton addButton;
 
 
     public static NewShooterFragment newInstance(int index) {
@@ -78,7 +80,7 @@ public class NewShooterFragment extends Fragment {
         View root = inflater.inflate(R.layout.new_shooter_fragment_layout, container, false);
 
         instantiateInputFields(root);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -100,6 +102,11 @@ public class NewShooterFragment extends Fragment {
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
+                                    Toast success = Toast.makeText(getActivity(),
+                                            "Added " + lastNameEditText.getText().toString(),
+                                            Toast.LENGTH_SHORT);
+                                    success.setGravity(Gravity.CENTER, 0, 0);
+                                    success.show();
                                     Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                                 }
                             })
@@ -126,7 +133,7 @@ public class NewShooterFragment extends Fragment {
         rankSpinner = root.findViewById(R.id.rank_spinner);
         weaponSpinner = root.findViewById(R.id.weapon_system_spinner);
         scoreEditText = root.findViewById(R.id.shooter_score_edittext);
-        submitButton = root.findViewById(R.id.submit_shooter_button);
+        addButton = root.findViewById(R.id.add_button);
 
     }
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
@@ -66,36 +67,16 @@ public class MainActivity extends AppCompatActivity {
         machineGunnerListAdapter = new CustomExpandableListAdapter(CONTEXT,
                 machineGunnerArrayList);
 
+        Log.d("ADAPTER", "CREATED");
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
 
 
         //TODO update list from range and database
         //TODO fix query problem, cannot pull data at moment
-        //Initial query request here
-        /*
-        db.collection("Firers")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                //Log each retrieved document data
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-
-                                //populate data to controller
-                                if(document.exists()){
-                                    MachineGunner newGunner = document.toObject(MachineGunner.class);
-                                    machineGunnerArrayList.add(newGunner);
-                                }
-
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
-                        }
-                    }
-                });
-*/
 
         //Handle changes and updates to data
         db.collection("Firers").addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -104,35 +85,33 @@ public class MainActivity extends AppCompatActivity {
                                 @Nullable FirebaseFirestoreException e) {
 
                 machineGunnerArrayList.clear();
-
+                displayLoadingView();
                 for (DocumentSnapshot shot : snapShots) {
                     machineGunnerArrayList.add(shot.toObject(MachineGunner.class));
                 }
 
                 updateList();
-
             }
 
-
         });
-
-        //TODO remove below and consider using recycler view implementation and firebases guided recommendations
-        /*
-        ScoresFragment.listView = (ExpandableListView) findViewById(R.id.scores_expandable_listview);
-        ScoresFragment.listView.setAdapter(MainActivity.machineGunnerListAdapter);
-        ScoresFragment.listView.setGroupIndicator(null);
-*/
-
-        Log.d("ADAPTER", "CREATED");
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);
 
     }
 
     public void updateList() {
         viewPager.getAdapter().notifyDataSetChanged();
+        displayListView();
+    }
+
+    public void displayListView(){
+        findViewById(R.id.scores_expandable_listview)
+                .setVisibility(View.VISIBLE);
+        findViewById(R.id.loading_spinner)
+                .setVisibility(View.GONE);
+    }
+    public void displayLoadingView(){
+        findViewById(R.id.scores_expandable_listview)
+                .setVisibility(View.GONE);
+        findViewById(R.id.loading_spinner)
+                .setVisibility(View.VISIBLE);
     }
 }

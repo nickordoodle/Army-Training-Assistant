@@ -35,7 +35,7 @@
     <string name="m249_reg">M249</string>
 
     /* Qualification fragment strings */
-    <string name="footer">All information extracted from TC 3-22.240.\n
+    <string name="footer">All information extracted from TC 3-22.240/249.\n
         Created for Soldiers, Made by Soldiers</string>
     <string name="action_settings">Settings</string>
 

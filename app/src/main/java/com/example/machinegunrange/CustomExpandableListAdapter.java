@@ -138,6 +138,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         String lastName = this.expandableListMachineGunner
                 .get(listPosition)
                 .getLastName();
+        int score = this.expandableListMachineGunner
+                .get(listPosition)
+                .getScore();
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -154,6 +157,13 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.last_name_textview);
         lastNameTextView.setTypeface(null, Typeface.BOLD);
         lastNameTextView.setText(lastName);
+
+        //Set score values
+        TextView scoreTextView = (TextView) convertView
+                .findViewById(R.id.score_textview);
+        scoreTextView.setTypeface(null, Typeface.BOLD);
+        scoreTextView.setText(String.valueOf(score));
+
         return convertView;
     }
 
