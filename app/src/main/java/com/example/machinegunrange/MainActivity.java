@@ -57,6 +57,23 @@ public class MainActivity extends AppCompatActivity {
         CONTEXT = getApplicationContext();
         PACKAGE_NAME = getApplicationContext().getPackageName();
 
+        //test email
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    MailSender sender = new MailSender("sylvain.saurel@gmail.com",
+                            "your_password");
+                    sender.sendMail("Hello from JavaMail", "Body from JavaMail",
+                            "sylvain.saurel@gmail.com", "sylvain.saurel@gmail.com");
+                } catch (Exception e) {
+                    Log.e("SendMail", e.getMessage(), e);
+                }
+            }
+
+        }).start();
+
         // Instantiate Database
         db = FirebaseFirestore.getInstance();
 
