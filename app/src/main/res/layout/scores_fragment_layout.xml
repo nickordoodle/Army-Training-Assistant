@@ -33,6 +33,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/erase_button"
             android:text="@string/erase_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +45,8 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
         <Button
-            android:text="@string/save"
+            android:id="@+id/export_button"
+            android:text="@string/export"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
@@ -52,7 +54,6 @@
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="@dimen/activity_vertical_margin"
             android:layout_weight="1"/>
-
 
     </LinearLayout>
 

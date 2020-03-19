@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 
@@ -14,8 +15,10 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.machinegunrange.CustomExpandableListAdapter;
 import com.example.machinegunrange.MachineGunner;
+import com.example.machinegunrange.MailSender;
 import com.example.machinegunrange.MainActivity;
 import com.example.machinegunrange.R;
+import com.example.machinegunrange.Utilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +32,8 @@ public class ScoresFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     public static ExpandableListView listView;
     private PageViewModel pageViewModel;
+    private Button exportButton;
+    private View.OnClickListener exportButtonListener;
 
     public static ScoresFragment newInstance(int index) {
         ScoresFragment fragment = new ScoresFragment();
@@ -47,6 +52,13 @@ public class ScoresFragment extends Fragment {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
         pageViewModel.setIndex(index);
+        exportButtonListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utilities.sendEmailWithDialog(getContext());
+
+            }
+        };
     }
 
     @Override
@@ -54,6 +66,9 @@ public class ScoresFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.scores_fragment_layout, container, false);
+        exportButton = root.findViewById(R.id.export_button);
+        exportButton.setOnClickListener(exportButtonListener);
+
         return root;
     }
 

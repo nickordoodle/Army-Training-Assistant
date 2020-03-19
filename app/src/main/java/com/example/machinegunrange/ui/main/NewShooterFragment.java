@@ -116,6 +116,9 @@ public class NewShooterFragment extends Fragment {
                                     Log.w(TAG, "Error adding document", e);
                                 }
                             });
+                } else {
+                    //input invalid, let user know
+                    Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -141,6 +144,22 @@ public class NewShooterFragment extends Fragment {
     private boolean validateInput(){
 
         //TODO Implement simple checks for the text and input fields
+        boolean isInputValid = true;
+        if(isEmpty(lastNameEditText) || isEmpty(firstNameEditText)
+            || isEmpty(companyEditText) || isEmpty(battalionEditText)
+            || isEmpty(scoreEditText)){
+
+            isInputValid = false;
+        }
+
+        return isInputValid;
+
+    }
+
+
+    private boolean isEmpty(EditText etText) {
+        if (etText.getText().toString().trim().length() > 0)
+            return false;
 
         return true;
     }

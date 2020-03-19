@@ -5,6 +5,7 @@
     <string name="saved_ranges">Saved Ranges</string>
     <string name="new_shooter">Add</string>
     <string name="scores">Scores</string>
+    <string name="export">Export</string>
     <string name="regulation">Regulation</string>
     <string name="title_activity_saved_ranges">SavedRangesActivity</string>
 
@@ -33,6 +34,7 @@
     /* Strings needed for scores fragment */
     <string name="m240_reg">M240</string>
     <string name="m249_reg">M249</string>
+
 
     /* Qualification fragment strings */
     <string name="footer">All information extracted from TC 3-22.240/249.\n
