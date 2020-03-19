@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    MailSender sender = new MailSender("sylvain.saurel@gmail.com",
-                            "your_password");
+                    MailSender sender = new MailSender("MY_EMAIL",
+                            "MY_PASSWORD");
                     sender.sendMail("Hello from JavaMail", "Body from JavaMail",
-                            "sylvain.saurel@gmail.com", "sylvain.saurel@gmail.com");
+                            "MY_EMAIL", "USER_EMAIL");
                 } catch (Exception e) {
                     Log.e("SendMail", e.getMessage(), e);
                 }
