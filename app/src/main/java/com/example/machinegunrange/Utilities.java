@@ -1,5 +1,6 @@
 package com.example.machinegunrange;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -7,6 +8,7 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -23,7 +25,7 @@ public class Utilities {
         return Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + File.pathSeparator + File.separator + MainActivity.PACKAGE_NAME + "/mipmap/" + filename);
     }
 
-    public static void sendEmailWithDialog(Context context){
+    public static void sendEmailWithDialog(final Activity activity, final Context context){
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
@@ -33,12 +35,18 @@ public class Utilities {
         alertDialogBuilder.setView(emailET);
 
         // set dialog message
-        alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+        alertDialogBuilder.setCancelable(true).setPositiveButton("Send", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+
                 final String email = emailET.getText().toString();
 
-                //send email based on users email
-                new Thread(new Runnable() {
+                //ensure a value is entered
+                if (email.matches("")) {
+                    Toast.makeText(context, "Please enter your email", Toast.LENGTH_SHORT).show();
+                } else {
+                    //send email based on users email
+                    new Thread(new Runnable() {
 
                     @Override
                     public void run() {
@@ -58,6 +66,7 @@ public class Utilities {
 
             }
         });
+
 
         // create alert dialog
         AlertDialog alertDialog = alertDialogBuilder.create();
