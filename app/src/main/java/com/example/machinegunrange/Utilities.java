@@ -6,11 +6,13 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.net.Uri;
+import android.text.Html;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.File;
+import java.net.HttpCookie;
 
 public class Utilities {
 
@@ -35,7 +37,6 @@ public class Utilities {
         alertDialogBuilder.setView(emailET);
 
         // set dialog message
-
         alertDialogBuilder.setCancelable(true).setPositiveButton("Send", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
 
