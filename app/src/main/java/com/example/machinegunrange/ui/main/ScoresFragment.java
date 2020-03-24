@@ -66,22 +66,16 @@ public class ScoresFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.scores_fragment_layout, container, false);
+
+        listView = (ExpandableListView) root.findViewById(R.id.scores_expandable_listview);
+        listView.setAdapter(MainActivity.machineGunnerListAdapter);
+        listView.setGroupIndicator(null);
+
+        //listView.addFooterView(inflater.inflate(R.layout.listview_footer, null));
         exportButton = root.findViewById(R.id.export_button);
         exportButton.setOnClickListener(exportButtonListener);
 
         return root;
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Log.d("SCORES ", "LIST STARTED");
-
-        //TODO fix list adapter to and set it earlier so updates are made or pass it through each time
-        listView = (ExpandableListView) view.findViewById(R.id.scores_expandable_listview);
-        listView.setAdapter(MainActivity.machineGunnerListAdapter);
-        listView.setGroupIndicator(null);
-
     }
 
 }

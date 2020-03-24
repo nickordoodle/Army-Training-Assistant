@@ -62,6 +62,21 @@ public class MainActivity extends AppCompatActivity {
         // Instantiate Database
         db = FirebaseFirestore.getInstance();
 
+        //Handle changes and updates to data
+        db.collection("Firers").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot snapShots,
+                                @Nullable FirebaseFirestoreException e) {
+
+                machineGunnerArrayList.clear();
+                for (DocumentSnapshot shot : snapShots) {
+                    machineGunnerArrayList.add(shot.toObject(MachineGunner.class));
+                }
+
+                updateList();
+            }
+
+        });
 
         machineGunnerArrayList = new ArrayList<>();
 
@@ -80,40 +95,12 @@ public class MainActivity extends AppCompatActivity {
         //TODO update list from range and database
         //TODO fix query problem, cannot pull data at moment
 
-        //Handle changes and updates to data
-        db.collection("Firers").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot snapShots,
-                                @Nullable FirebaseFirestoreException e) {
 
-                machineGunnerArrayList.clear();
-                displayLoadingView();
-                for (DocumentSnapshot shot : snapShots) {
-                    machineGunnerArrayList.add(shot.toObject(MachineGunner.class));
-                }
-
-                updateList();
-            }
-
-        });
 
     }
 
     public void updateList() {
         viewPager.getAdapter().notifyDataSetChanged();
-        displayListView();
     }
 
-    public void displayListView(){
-        findViewById(R.id.scores_expandable_listview)
-                .setVisibility(View.VISIBLE);
-        findViewById(R.id.loading_spinner)
-                .setVisibility(View.GONE);
-    }
-    public void displayLoadingView(){
-        findViewById(R.id.scores_expandable_listview)
-                .setVisibility(View.GONE);
-        findViewById(R.id.loading_spinner)
-                .setVisibility(View.VISIBLE);
-    }
 }

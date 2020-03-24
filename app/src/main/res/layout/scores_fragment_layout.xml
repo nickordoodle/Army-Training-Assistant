@@ -5,31 +5,25 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ExpandableListView
-        android:id="@+id/scores_expandable_listview"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="0.5dp" />
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/loading_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:visibility="gone">
-
-        <ProgressBar
-            android:layout_width="wrap_content"
+        <ExpandableListView
+            android:id="@+id/scores_expandable_listview"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:indeterminate="true" />
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="0.5dp" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <Button
@@ -56,6 +50,8 @@
             android:layout_weight="1"/>
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>
