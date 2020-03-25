@@ -32,7 +32,9 @@ public class ScoresFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     public static ExpandableListView listView;
     private PageViewModel pageViewModel;
+    private Button eraseButton;
     private Button exportButton;
+    private View.OnClickListener eraseButtonListener;
     private View.OnClickListener exportButtonListener;
 
     public static ScoresFragment newInstance(int index) {
@@ -52,6 +54,14 @@ public class ScoresFragment extends Fragment {
             index = getArguments().getInt(ARG_SECTION_NUMBER);
         }
         pageViewModel.setIndex(index);
+        eraseButtonListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //TODO DO STUFF
+            }
+        };
+
         exportButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,11 +77,15 @@ public class ScoresFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.scores_fragment_layout, container, false);
 
+        //link data adapter to the list view
         listView = (ExpandableListView) root.findViewById(R.id.scores_expandable_listview);
         listView.setAdapter(MainActivity.machineGunnerListAdapter);
         listView.setGroupIndicator(null);
 
-        //listView.addFooterView(inflater.inflate(R.layout.listview_footer, null));
+        //init buttons and set listeners to handle onclick
+        eraseButton = root.findViewById(R.id.erase_button);
+        eraseButton.setOnClickListener(eraseButtonListener);
+
         exportButton = root.findViewById(R.id.export_button);
         exportButton.setOnClickListener(exportButtonListener);
 
