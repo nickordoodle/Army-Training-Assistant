@@ -62,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
         // Instantiate Database
         db = FirebaseFirestore.getInstance();
 
+        machineGunnerArrayList = new ArrayList<>();
+        //create and set adapter
+        machineGunnerListAdapter = new CustomExpandableListAdapter(CONTEXT,
+                machineGunnerArrayList);
+
         //Handle changes and updates to data
         db.collection("Firers").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -78,11 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        machineGunnerArrayList = new ArrayList<>();
-
-        //create and set adapter
-        machineGunnerListAdapter = new CustomExpandableListAdapter(CONTEXT,
-                machineGunnerArrayList);
 
         Log.d("ADAPTER", "CREATED");
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
@@ -92,14 +92,9 @@ public class MainActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
 
 
-        //TODO update list from range and database
-        //TODO fix query problem, cannot pull data at moment
-
-
-
     }
 
-    public void updateList() {
+    public static void updateList() {
         viewPager.getAdapter().notifyDataSetChanged();
     }
 
