@@ -1,6 +1,7 @@
 package com.example.machinegunrange.ui.main;
 
 import android.content.Context;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -49,7 +50,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 4 total pages.
-        return 4;
+        // Get count based on number of tabs
+        return TAB_TITLES.length;
     }
 }

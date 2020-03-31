@@ -6,7 +6,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,11 +22,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static android.content.ContentValues.TAG;
-import static com.example.machinegunrange.MainActivity.machineGunnerArrayList;
 
 /**
  * A Scores fragment containing a simple view.
@@ -87,7 +82,7 @@ public class NewShooterFragment extends Fragment {
                 //validate all inputs and then submit and populate array
                 if(validateInput()){
 
-                    MachineGunner newShooter = new MachineGunner(
+                    final MachineGunner newShooter = new MachineGunner(
                             lastNameEditText.getText().toString(),
                             firstNameEditText.getText().toString(),
                             companyEditText.getText().toString(),
@@ -102,6 +97,9 @@ public class NewShooterFragment extends Fragment {
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
+                                    MainActivity.machineGunnerListAdapter.addItem(newShooter);
+                                    MainActivity.machineGunnerListAdapter.notifyDataSetChanged();
+                                    ScoresFragment.listView.invalidateViews();
                                     Toast success = Toast.makeText(getActivity(),
                                             "Added " + lastNameEditText.getText().toString(),
                                             Toast.LENGTH_SHORT);

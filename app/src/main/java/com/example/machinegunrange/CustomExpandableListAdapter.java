@@ -1,10 +1,8 @@
 package com.example.machinegunrange;
 
-import java.util.ArrayList;
-
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.graphics.Typeface;
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,20 +10,49 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private ArrayList<MachineGunner> expandableListMachineGunner;
+    private ArrayList<MachineGunner> soldierTrainingList;
 
-    public CustomExpandableListAdapter(Context context,
-                                       ArrayList<MachineGunner> expandableListMachineGunner) {
+    public CustomExpandableListAdapter(Context context) {
         this.context = context;
-        this.expandableListMachineGunner = expandableListMachineGunner;
+        this.soldierTrainingList = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CustomExpandableListAdapter{");
+        sb.append("context=").append(context);
+        sb.append(", expandableListMachineGunner=").append(soldierTrainingList);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public void addItem(final MachineGunner item) {
+        soldierTrainingList.add(item);
+        this.notifyDataSetChanged();
+    }
+
+    public void removeItem(final MachineGunner item) {
+        soldierTrainingList.remove(item);
+        this.notifyDataSetChanged();
+    }
+
+    public void replaceData(ArrayList<MachineGunner> newList){
+        this.soldierTrainingList.clear();
+        soldierTrainingList.addAll(newList);
+    }
+
+    public void deleteAllData(){
+        this.soldierTrainingList.clear();
     }
 
     @Override
     public Object getChild(int listPosition, int expandedListPosition) {
-        MachineGunner current = this.expandableListMachineGunner.get(listPosition);
+        MachineGunner current = this.soldierTrainingList.get(listPosition);
 
         switch(expandedListPosition)
         {
@@ -65,7 +92,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int listPosition, final int expandedListPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        MachineGunner currentGunner = this.expandableListMachineGunner.get(listPosition);
+        MachineGunner currentGunner = this.soldierTrainingList.get(listPosition);
         String expandedListText;
 
         switch(expandedListPosition)
@@ -125,12 +152,32 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int listPosition) {
-        return this.expandableListMachineGunner.get(listPosition);
+        return this.soldierTrainingList.get(listPosition);
+    }
+
+    @Override
+    public void registerDataSetObserver(DataSetObserver observer) {
+
+    }
+
+    @Override
+    public void unregisterDataSetObserver(DataSetObserver observer) {
+
+    }
+
+    @Override
+    public void notifyDataSetInvalidated() {
+        super.notifyDataSetInvalidated();
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
     }
 
     @Override
     public int getGroupCount() {
-        return this.expandableListMachineGunner.size();
+        return this.soldierTrainingList.size();
     }
 
     @Override
@@ -141,13 +188,13 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int listPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
-        String rank = this.expandableListMachineGunner
+        String rank = this.soldierTrainingList
                 .get(listPosition)
                 .getRank();
-        String lastName = this.expandableListMachineGunner
+        String lastName = this.soldierTrainingList
                 .get(listPosition)
                 .getLastName();
-        int score = this.expandableListMachineGunner
+        int score = this.soldierTrainingList
                 .get(listPosition)
                 .getScore();
         if (convertView == null) {
@@ -187,8 +234,53 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public void notifyDataSetChanged() {
-        super.notifyDataSetChanged();
+    public boolean areAllItemsEnabled() {
+        return false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public int getChildType(int groupPosition, int childPosition) {
+        return super.getChildType(groupPosition, childPosition);
+    }
+
+    @Override
+    public int getChildTypeCount() {
+        return super.getChildTypeCount();
+    }
+
+    @Override
+    public int getGroupType(int groupPosition) {
+        return super.getGroupType(groupPosition);
+    }
+
+    @Override
+    public int getGroupTypeCount() {
+        return super.getGroupTypeCount();
+    }
+
+    @Override
+    public void onGroupExpanded(int groupPosition) {
+
+    }
+
+    @Override
+    public void onGroupCollapsed(int groupPosition) {
+
+    }
+
+    @Override
+    public long getCombinedChildId(long groupId, long childId) {
+        return 0;
+    }
+
+    @Override
+    public long getCombinedGroupId(long groupId) {
+        return 0;
     }
 
 
