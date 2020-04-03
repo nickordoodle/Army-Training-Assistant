@@ -2,43 +2,30 @@ package com.example.armytrainingassistant;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
-import org.apache.commons.io.FileUtils;
+
 import org.apache.commons.io.IOUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CharsetEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
-
-import javax.crypto.Mac;
-
-import static com.google.common.base.Predicates.equalTo;
 
 public class Utilities {
 
     private static final String htmlTableRowOpen = "<tr>";
     private static final String htmlTableRowClose = "</tr>";
     private static final String htmlTableDataOpen = "<td>";
-    private static final String htmlTableDataClose = "</tr>";
+    private static final String htmlTableDataClose = "</td>";
     private static final String htmlTableOpen = "<table>";
     private static final String htmlTableClose = "</table>";
 
-    public static void sendEmailWithDialog(final Activity activity, final Context context, final ArrayList<MachineGunner> data){
+    public static void sendEmailWithDialog(final Activity activity, final Context context, final ArrayList<Trainee> data){
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         final EditText emailET = new EditText(context);
@@ -108,18 +95,21 @@ public class Utilities {
 
     }
 
-    public static String htmlGenerator(ArrayList<MachineGunner> data, Context context){
+    public static String htmlGenerator(ArrayList<Trainee> data, Context context){
 
-        ArrayList<MachineGunner> sortedData = new ArrayList<MachineGunner>();
+        ArrayList<Trainee> sortedData = new ArrayList<Trainee>();
         sortedData.addAll(data);
         //Last name sorter
-        Comparator<MachineGunner> compareByLastName = (MachineGunner o1, MachineGunner o2) ->
+        Comparator<Trainee> compareByLastName = (Trainee o1, Trainee o2) ->
                 o1.getLastName().compareTo( o2.getLastName() );
         Collections.sort(sortedData, compareByLastName);
 
         String result = "";
         //generate html table to hold our data
         result += htmlTableOpen;
+
+        //TODO NEED TO ADD FORMATTING TO WHERE ITS READABLE, CSS???
+        //TODO CHANGE IMPLEMENTATION TO EMAIL EXCEL FILE OF GENERATED REPORT FOR DTMS
 
         //build first row of header values
         result += htmlTableRowOpen +
@@ -130,10 +120,10 @@ public class Utilities {
                     htmlTableDataOpen + context.getString(R.string.html_score) + htmlTableDataClose +
                     htmlTableDataOpen + context.getString(R.string.html_battalion) + htmlTableDataClose +
                     htmlTableDataOpen + context.getString(R.string.html_company) + htmlTableDataClose +
-                htmlTableClose;
+                htmlTableRowClose;
 
         //concatenate data for each trainee by row
-        for (MachineGunner currentTrainee : sortedData) {
+        for (Trainee currentTrainee : sortedData) {
             result += htmlTableRowOpen +
                     htmlTableDataOpen + currentTrainee.getRank() + htmlTableDataClose +
                     htmlTableDataOpen + currentTrainee.getLastName() + htmlTableDataClose +
@@ -142,7 +132,7 @@ public class Utilities {
                     htmlTableDataOpen + currentTrainee.getScore() + htmlTableDataClose +
                     htmlTableDataOpen + currentTrainee.getBattalion() + htmlTableDataClose +
                     htmlTableDataOpen + currentTrainee.getCompany() + htmlTableDataClose +
-                    htmlTableClose;
+                    htmlTableRowClose;
         }
 
         //close our table

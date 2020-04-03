@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.armytrainingassistant.MachineGunner;
+import com.example.armytrainingassistant.Trainee;
 import com.example.armytrainingassistant.MainActivity;
 import com.example.armytrainingassistant.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,7 +29,7 @@ import static android.content.ContentValues.TAG;
  */
 
 //TODO Add string resources for layout file
-public class NewShooterFragment extends Fragment {
+public class NewTraineeFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -45,8 +45,8 @@ public class NewShooterFragment extends Fragment {
     private MaterialButton addButton;
 
 
-    public static NewShooterFragment newInstance(int index) {
-        NewShooterFragment fragment = new NewShooterFragment();
+    public static NewTraineeFragment newInstance(int index) {
+        NewTraineeFragment fragment = new NewTraineeFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);
@@ -81,7 +81,7 @@ public class NewShooterFragment extends Fragment {
                 //validate all inputs and then submit and populate array
                 if(validateInput()){
 
-                    final MachineGunner newShooter = new MachineGunner(
+                    final Trainee newShooter = new Trainee(
                             lastNameEditText.getText().toString(),
                             firstNameEditText.getText().toString(),
                             companyEditText.getText().toString(),

@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.armytrainingassistant.MachineGunner;
+import com.example.armytrainingassistant.Trainee;
 import com.example.armytrainingassistant.MainActivity;
 import com.example.armytrainingassistant.R;
 import com.example.armytrainingassistant.Utilities;
@@ -113,13 +113,13 @@ public class ScoresFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            ArrayList<MachineGunner> updatedList = new ArrayList<>();
+                            ArrayList<Trainee> updatedList = new ArrayList<>();
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
 
                                 //change to adapter implementation
-                                MachineGunner newGunner = document.toObject(MachineGunner.class);
+                                Trainee newGunner = document.toObject(Trainee.class);
                                 updatedList.add(newGunner);
                             }
 

@@ -17,7 +17,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
 
 
-    private ArrayList<MachineGunner> soldierTrainingList;
+    private ArrayList<Trainee> soldierTrainingList;
 
     public CustomExpandableListAdapter(Context context) {
         this.context = context;
@@ -33,32 +33,32 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         return sb.toString();
     }
 
-    public void addItem(final MachineGunner item) {
+    public void addItem(final Trainee item) {
         soldierTrainingList.add(item);
         this.notifyDataSetChanged();
     }
 
-    public void removeItem(final MachineGunner item) {
+    public void removeItem(final Trainee item) {
         soldierTrainingList.remove(item);
         this.notifyDataSetChanged();
     }
 
-    public void replaceData(ArrayList<MachineGunner> newList){
+    public void replaceData(ArrayList<Trainee> newList){
         this.soldierTrainingList.clear();
         soldierTrainingList.addAll(newList);
     }
 
-    public ArrayList<MachineGunner> getSoldierTrainingList() {
+    public ArrayList<Trainee> getSoldierTrainingList() {
         return soldierTrainingList;
     }
-    
+
     public void deleteAllData(){
         this.soldierTrainingList.clear();
     }
 
     @Override
     public Object getChild(int listPosition, int expandedListPosition) {
-        MachineGunner current = this.soldierTrainingList.get(listPosition);
+        Trainee current = this.soldierTrainingList.get(listPosition);
 
         switch(expandedListPosition)
         {
@@ -98,7 +98,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getChildView(int listPosition, final int expandedListPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        MachineGunner currentGunner = this.soldierTrainingList.get(listPosition);
+        Trainee currentGunner = this.soldierTrainingList.get(listPosition);
         String expandedListText;
 
         switch(expandedListPosition)

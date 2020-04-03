@@ -2,7 +2,7 @@ package com.example.armytrainingassistant;
 
 import androidx.annotation.NonNull;
 
-public class MachineGunner {
+public class Trainee {
 
     private String lastName;
 
@@ -27,14 +27,14 @@ public class MachineGunner {
     private String weaponSystem;
     private int score;
 
-    public MachineGunner() {
+    public Trainee() {
 
     }
 
 
-    public MachineGunner(String lastName, String firstName,
-                         String company, String battalion,
-                         String rank, String weaponSystem, int score) {
+    public Trainee(String lastName, String firstName,
+                   String company, String battalion,
+                   String rank, String weaponSystem, int score) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.company = company;
