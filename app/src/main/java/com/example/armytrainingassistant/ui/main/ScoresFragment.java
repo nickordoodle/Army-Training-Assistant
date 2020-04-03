@@ -1,4 +1,4 @@
-package com.example.machinegunrange.ui.main;
+package com.example.armytrainingassistant.ui.main;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,10 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.machinegunrange.MachineGunner;
-import com.example.machinegunrange.MainActivity;
-import com.example.machinegunrange.R;
-import com.example.machinegunrange.Utilities;
+import com.example.armytrainingassistant.MachineGunner;
+import com.example.armytrainingassistant.MainActivity;
+import com.example.armytrainingassistant.R;
+import com.example.armytrainingassistant.Utilities;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.QueryDocumentSnapshot;

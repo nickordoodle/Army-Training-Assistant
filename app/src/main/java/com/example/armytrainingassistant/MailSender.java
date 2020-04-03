@@ -1,4 +1,4 @@
-package com.example.machinegunrange;
+package com.example.armytrainingassistant;
 
 import java.security.Security;
 import java.util.Properties;

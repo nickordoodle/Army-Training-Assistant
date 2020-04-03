@@ -1,4 +1,4 @@
-package com.example.machinegunrange.ui.main;
+package com.example.armytrainingassistant.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

@@ -1,4 +1,4 @@
-package com.example.machinegunrange;
+package com.example.armytrainingassistant;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -9,8 +9,18 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+import java.nio.charset.CharsetEncoder;
+import java.nio.charset.StandardCharsets;
+
+import static com.google.common.base.Predicates.equalTo;
 
 public class Utilities {
 
@@ -23,12 +33,12 @@ public class Utilities {
     }
     public Uri getMipmapUri(String filename) {
         return Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + File.pathSeparator + File.separator + MainActivity.PACKAGE_NAME + "/mipmap/" + filename);
+
     }
 
     public static void sendEmailWithDialog(final Activity activity, final Context context){
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
         final EditText emailET = new EditText(context);
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(emailET);
@@ -54,9 +64,17 @@ public class Utilities {
                                 MailSender sender = new MailSender(senderEmail,
                                         senderCred);
                                 //TODO ADD CURRENT DATA TO EMAIL
-                                sender.sendMail("Hello from JavaMail",
-                                        "<html><body><tr><td>data 1</td></tr>" +
-                                                "<tr><td>data 2</td></tr></body></html>",
+                                //TODO MOST LIKELY NEED TO CREATE HTML GENERATOR CLASS
+                                InputStream inputStream = context.getAssets().open("htmlTemplate.html");
+
+                                String htmlString = IOUtils.toString(inputStream, StandardCharsets.UTF_8.name());
+                                String title = context.getString(R.string.app_name);
+                                String body = "This is Body";
+                                //htmlString = htmlString.replace("$title", title);
+                                htmlString = htmlString.replace("$body", body);
+
+                                sender.sendMail(title,
+                                        htmlString,
                                         senderEmail, email);
                                 activity.runOnUiThread(new Runnable() {
                                     public void run() {

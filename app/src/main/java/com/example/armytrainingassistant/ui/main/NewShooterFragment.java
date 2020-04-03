@@ -1,4 +1,4 @@
-package com.example.machinegunrange.ui.main;
+package com.example.armytrainingassistant.ui.main;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.machinegunrange.MachineGunner;
-import com.example.machinegunrange.MainActivity;
-import com.example.machinegunrange.R;
+import com.example.armytrainingassistant.MachineGunner;
+import com.example.armytrainingassistant.MainActivity;
+import com.example.armytrainingassistant.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
@@ -29,7 +29,6 @@ import static android.content.ContentValues.TAG;
  */
 
 //TODO Add string resources for layout file
-    //TODO Inmplement amazon backend to link and edit data
 public class NewShooterFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";

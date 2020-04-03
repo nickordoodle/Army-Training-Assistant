@@ -1,4 +1,4 @@
-package com.example.machinegunrange;
+package com.example.armytrainingassistant;
 
 import java.security.AccessController;
 import java.security.Provider;

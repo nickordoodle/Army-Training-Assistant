@@ -1,4 +1,4 @@
-package com.example.machinegunrange;
+package com.example.armytrainingassistant;
 
 import androidx.annotation.NonNull;
 
