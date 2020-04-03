@@ -19,24 +19,26 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.crypto.Mac;
 
 import static com.google.common.base.Predicates.equalTo;
 
 public class Utilities {
 
-    public static Uri getRawUri(String filename) {
-        return Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + File.pathSeparator + File.separator
-                + "/raw/" + filename);
-    }
-    public Uri getDrawableUri(String filename) {
-        return Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + File.pathSeparator + File.separator + MainActivity.PACKAGE_NAME + "/drawable/" + filename);
-    }
-    public Uri getMipmapUri(String filename) {
-        return Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + File.pathSeparator + File.separator + MainActivity.PACKAGE_NAME + "/mipmap/" + filename);
+    private static final String htmlTableRowOpen = "<tr>";
+    private static final String htmlTableRowClose = "</tr>";
+    private static final String htmlTableDataOpen = "<td>";
+    private static final String htmlTableDataClose = "</tr>";
+    private static final String htmlTableOpen = "<table>";
+    private static final String htmlTableClose = "</table>";
 
-    }
-
-    public static void sendEmailWithDialog(final Activity activity, final Context context){
+    public static void sendEmailWithDialog(final Activity activity, final Context context, final ArrayList<MachineGunner> data){
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         final EditText emailET = new EditText(context);
@@ -68,8 +70,8 @@ public class Utilities {
                                 InputStream inputStream = context.getAssets().open("htmlTemplate.html");
 
                                 String htmlString = IOUtils.toString(inputStream, StandardCharsets.UTF_8.name());
-                                String title = context.getString(R.string.app_name);
-                                String body = "This is Body";
+                                String title = "See your training report by Army Training Assistant";
+                                String body = htmlGenerator(data, context);
                                 //htmlString = htmlString.replace("$title", title);
                                 htmlString = htmlString.replace("$body", body);
 
@@ -104,6 +106,49 @@ public class Utilities {
         // show it
         alertDialog.show();
 
+    }
+
+    public static String htmlGenerator(ArrayList<MachineGunner> data, Context context){
+
+        ArrayList<MachineGunner> sortedData = new ArrayList<MachineGunner>();
+        sortedData.addAll(data);
+        //Last name sorter
+        Comparator<MachineGunner> compareByLastName = (MachineGunner o1, MachineGunner o2) ->
+                o1.getLastName().compareTo( o2.getLastName() );
+        Collections.sort(sortedData, compareByLastName);
+
+        String result = "";
+        //generate html table to hold our data
+        result += htmlTableOpen;
+
+        //build first row of header values
+        result += htmlTableRowOpen +
+                    htmlTableDataOpen + context.getString(R.string.html_rank) + htmlTableDataClose +
+                    htmlTableDataOpen + context.getString(R.string.html_last_name) + htmlTableDataClose +
+                    htmlTableDataOpen + context.getString(R.string.html_first_name) + htmlTableDataClose +
+                    htmlTableDataOpen + context.getString(R.string.html_weapon_system) + htmlTableDataClose +
+                    htmlTableDataOpen + context.getString(R.string.html_score) + htmlTableDataClose +
+                    htmlTableDataOpen + context.getString(R.string.html_battalion) + htmlTableDataClose +
+                    htmlTableDataOpen + context.getString(R.string.html_company) + htmlTableDataClose +
+                htmlTableClose;
+
+        //concatenate data for each trainee by row
+        for (MachineGunner currentTrainee : sortedData) {
+            result += htmlTableRowOpen +
+                    htmlTableDataOpen + currentTrainee.getRank() + htmlTableDataClose +
+                    htmlTableDataOpen + currentTrainee.getLastName() + htmlTableDataClose +
+                    htmlTableDataOpen + currentTrainee.getFirstName() + htmlTableDataClose +
+                    htmlTableDataOpen + currentTrainee.getWeaponSystem() + htmlTableDataClose +
+                    htmlTableDataOpen + currentTrainee.getScore() + htmlTableDataClose +
+                    htmlTableDataOpen + currentTrainee.getBattalion() + htmlTableDataClose +
+                    htmlTableDataOpen + currentTrainee.getCompany() + htmlTableDataClose +
+                    htmlTableClose;
+        }
+
+        //close our table
+        result += htmlTableClose;
+
+        return result;
     }
 
 }

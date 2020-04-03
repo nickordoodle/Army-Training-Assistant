@@ -41,6 +41,19 @@
         Created for Soldiers, Made by Soldiers</string>
     <string name="action_settings">Settings</string>
 
+    /* Email client */
+    <string name="email_send_title">See your training report by Army Training Assistant</string>
+
+
+    /* HTML Tag Generators */
+    <string name="html_last_name">Last Name</string>
+    <string name="html_first_name">First Name</string>
+    <string name="html_rank">Rank</string>
+    <string name="html_battalion">Battalion</string>
+    <string name="html_company">Company</string>
+    <string name="html_weapon_system">Weapon System</string>
+    <string name="html_score">Score</string>
+
     /* Misc. strings required */
     <string-array name="rank_array">
         <item>PVT</item>

@@ -5,6 +5,21 @@ import androidx.annotation.NonNull;
 public class MachineGunner {
 
     private String lastName;
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("MachineGunner{");
+        sb.append("lastName='").append(lastName).append('\'');
+        sb.append(", firstName='").append(firstName).append('\'');
+        sb.append(", company='").append(company).append('\'');
+        sb.append(", battalion='").append(battalion).append('\'');
+        sb.append(", rank='").append(rank).append('\'');
+        sb.append(", weaponSystem='").append(weaponSystem).append('\'');
+        sb.append(", score=").append(score);
+        sb.append('}');
+        return sb.toString();
+    }
+
     private String firstName;
     private String company;
     private String battalion;
@@ -84,15 +99,6 @@ public class MachineGunner {
 
     public void setScore(int score) {
         this.score = score;
-    }
-
-    @NonNull
-    @Override
-    public String toString() {
-        String result = "MACHINE GUNNER DATA: " + lastName + "   " + firstName + "   " + rank +
-                "   " + weaponSystem + "    " + battalion + "   " + company +
-                score;
-        return result;
     }
 
 }

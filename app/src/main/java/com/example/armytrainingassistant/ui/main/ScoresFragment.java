@@ -75,7 +75,8 @@ public class ScoresFragment extends Fragment {
         exportButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utilities.sendEmailWithDialog(getActivity(), getContext());
+                Utilities.sendEmailWithDialog(getActivity(), getContext(),
+                        MainActivity.machineGunnerListAdapter.getSoldierTrainingList());
 
             }
         };

@@ -15,6 +15,8 @@ import java.util.ArrayList;
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
+
+
     private ArrayList<MachineGunner> soldierTrainingList;
 
     public CustomExpandableListAdapter(Context context) {
@@ -46,6 +48,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         soldierTrainingList.addAll(newList);
     }
 
+    public ArrayList<MachineGunner> getSoldierTrainingList() {
+        return soldierTrainingList;
+    }
+    
     public void deleteAllData(){
         this.soldierTrainingList.clear();
     }
