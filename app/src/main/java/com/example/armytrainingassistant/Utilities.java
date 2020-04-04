@@ -22,7 +22,7 @@ public class Utilities {
     private static final String htmlTableRowClose = "</tr>";
     private static final String htmlTableDataOpen = "<td>";
     private static final String htmlTableDataClose = "</td>";
-    private static final String htmlTableOpen = "<table>";
+    private static final String htmlTableOpen = "<table border: 1px solid black;\n>";
     private static final String htmlTableClose = "</table>";
 
     public static void sendEmailWithDialog(final Activity activity, final Context context, final ArrayList<Trainee> data){

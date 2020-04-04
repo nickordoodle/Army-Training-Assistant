@@ -10,27 +10,18 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-
-
     private ArrayList<Trainee> soldierTrainingList;
 
     public CustomExpandableListAdapter(Context context) {
         this.context = context;
         this.soldierTrainingList = new ArrayList<>();
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("CustomExpandableListAdapter{");
-        sb.append("context=").append(context);
-        sb.append(", expandableListMachineGunner=").append(soldierTrainingList);
-        sb.append('}');
-        return sb.toString();
     }
 
     public void addItem(final Trainee item) {
@@ -289,5 +280,13 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         return 0;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("CustomExpandableListAdapter{");
+        sb.append("context=").append(context);
+        sb.append(", expandableListMachineGunner=").append(soldierTrainingList);
+        sb.append('}');
+        return sb.toString();
+    }
 
 }
