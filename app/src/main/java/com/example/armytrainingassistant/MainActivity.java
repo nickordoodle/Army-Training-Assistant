@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
     public static ViewPager viewPager;
     public static String senderEmail;
     public static String senderCred;
+    public static FirebaseUser user;
+
     private FirebaseAuth mAuth;
-    private static FirebaseUser user;
 
 
     @Override

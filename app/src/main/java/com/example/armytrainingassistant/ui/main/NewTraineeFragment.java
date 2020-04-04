@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.SetOptions;
 
 import static android.content.ContentValues.TAG;
 
@@ -91,28 +92,35 @@ public class NewTraineeFragment extends Fragment {
                             Integer.parseInt(scoreEditText.getText().toString())
                     );
 
-                    MainActivity.db.collection("Firers")
-                            .add(newShooter)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    MainActivity.machineGunnerListAdapter.addItem(newShooter);
-                                    MainActivity.machineGunnerListAdapter.notifyDataSetChanged();
-                                    ScoresFragment.listView.invalidateViews();
-                                    Toast success = Toast.makeText(getActivity(),
-                                            "Added " + lastNameEditText.getText().toString(),
-                                            Toast.LENGTH_SHORT);
-                                    success.setGravity(Gravity.CENTER, 0, 0);
-                                    success.show();
-                                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w(TAG, "Error adding document", e);
-                                }
-                            });
+                    Log.d(TAG, "DocumentSnapshot added with ID: " + MainActivity.user.getUid());
+                    MainActivity.db.collection("Users")
+                        .document(MainActivity.user.getUid())
+                        .collection("Trainees")
+                        .add(newShooter)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Log.d(TAG, "DocumentSnapshot successfully written!");
+                                MainActivity.machineGunnerListAdapter.addItem(newShooter);
+                                MainActivity.machineGunnerListAdapter.notifyDataSetChanged();
+                                ScoresFragment.listView.invalidateViews();
+                                Toast success = Toast.makeText(getActivity(),
+                                        "Added " + lastNameEditText.getText().toString(),
+                                        Toast.LENGTH_SHORT);
+                                success.setGravity(Gravity.CENTER, 0, 0);
+                                success.show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                e.printStackTrace();
+                                Log.d(TAG, "Failed to write " + newShooter.toString()
+                                        + " " + MainActivity.user.getUid());
+
+                            }
+                    });
+
                 } else {
                     //input invalid, let user know
                     Toast.makeText(getContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
