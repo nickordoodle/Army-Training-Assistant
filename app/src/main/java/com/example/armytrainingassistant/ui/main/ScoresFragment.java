@@ -21,6 +21,8 @@ import com.example.armytrainingassistant.R;
 import com.example.armytrainingassistant.Utilities;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -107,7 +109,11 @@ public class ScoresFragment extends Fragment {
     }
 
     private void getAllFromDB(){
-        MainActivity.db.collection("Firers")
+        CollectionReference listRef = MainActivity.db
+                .collection("Users").document(MainActivity.user.getUid())
+                .collection("Trainees");
+
+        MainActivity.db.collection(listRef.getPath())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -135,7 +141,11 @@ public class ScoresFragment extends Fragment {
     }
 
     private void deleteAllFromDB(){
-        MainActivity.db.collection("Firers")
+        CollectionReference listRef = MainActivity.db
+                .collection("Users").document(MainActivity.user.getUid())
+                .collection("Trainees");
+
+        MainActivity.db.collection(listRef.getPath())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
