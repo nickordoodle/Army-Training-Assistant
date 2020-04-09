@@ -1,7 +1,5 @@
 package com.example.armytrainingassistant.Model;
 
-import androidx.annotation.NonNull;
-
 public class Trainee {
 
     private String lastName;

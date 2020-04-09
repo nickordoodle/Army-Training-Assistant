@@ -14,10 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.armytrainingassistant.Model.Trainee;
 import com.example.armytrainingassistant.Activities.MainActivity;
-import com.example.armytrainingassistant.R;
 import com.example.armytrainingassistant.Model.PageViewModel;
+import com.example.armytrainingassistant.Model.Trainee;
+import com.example.armytrainingassistant.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;

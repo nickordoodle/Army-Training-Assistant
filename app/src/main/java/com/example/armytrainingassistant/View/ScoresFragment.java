@@ -15,11 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.armytrainingassistant.Model.Trainee;
 import com.example.armytrainingassistant.Activities.MainActivity;
+import com.example.armytrainingassistant.Model.PageViewModel;
+import com.example.armytrainingassistant.Model.Trainee;
 import com.example.armytrainingassistant.R;
 import com.example.armytrainingassistant.Utilities;
-import com.example.armytrainingassistant.Model.PageViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;

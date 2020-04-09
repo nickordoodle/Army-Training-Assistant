@@ -8,8 +8,8 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.armytrainingassistant.Email.MailSender;
 import com.example.armytrainingassistant.Activities.MainActivity;
+import com.example.armytrainingassistant.Email.MailSender;
 import com.example.armytrainingassistant.Model.Trainee;
 
 import org.apache.commons.io.IOUtils;
