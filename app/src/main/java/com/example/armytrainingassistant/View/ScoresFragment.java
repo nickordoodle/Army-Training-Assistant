@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant.ui.main;
+package com.example.armytrainingassistant.View;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,14 +15,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.armytrainingassistant.Trainee;
-import com.example.armytrainingassistant.MainActivity;
+import com.example.armytrainingassistant.Model.Trainee;
+import com.example.armytrainingassistant.Activities.MainActivity;
 import com.example.armytrainingassistant.R;
 import com.example.armytrainingassistant.Utilities;
+import com.example.armytrainingassistant.Model.PageViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -70,7 +70,12 @@ public class ScoresFragment extends Fragment {
         eraseButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               deleteAllFromDB();
+               try {
+                   deleteAllFromDB();
+               } catch (NullPointerException e){
+                   e.printStackTrace();
+                   Log.d(TAG, "New user or not found in DB, list not populated");
+               }
             }
         };
 
@@ -96,7 +101,12 @@ public class ScoresFragment extends Fragment {
         listView.setAdapter(MainActivity.machineGunnerListAdapter);
         listView.setGroupIndicator(null);
 
-        getAllFromDB();
+        try{
+            getAllFromDB();
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            Log.d(TAG, "New user or not found in DB, list not populated");
+        }
 
         //init buttons and set listeners to handle onclick
         eraseButton = root.findViewById(R.id.erase_button);

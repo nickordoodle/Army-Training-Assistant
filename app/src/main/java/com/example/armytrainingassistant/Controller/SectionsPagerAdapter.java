@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant.ui.main;
+package com.example.armytrainingassistant.Controller;
 
 import android.content.Context;
 
@@ -9,6 +9,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.armytrainingassistant.R;
+import com.example.armytrainingassistant.View.M240Fragment;
+import com.example.armytrainingassistant.View.M249Fragment;
+import com.example.armytrainingassistant.View.NewTraineeFragment;
+import com.example.armytrainingassistant.View.ScoresFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

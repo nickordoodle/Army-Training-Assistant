@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant;
+package com.example.armytrainingassistant.Activities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.armytrainingassistant.ui.main.SectionsPagerAdapter;
+import com.example.armytrainingassistant.Controller.CustomExpandableListAdapter;
+import com.example.armytrainingassistant.Controller.SectionsPagerAdapter;
+import com.example.armytrainingassistant.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;

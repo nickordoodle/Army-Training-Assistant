@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant;
+package com.example.armytrainingassistant.Controller;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseUser;
+import com.example.armytrainingassistant.R;
+import com.example.armytrainingassistant.Model.Trainee;
 
 import java.util.ArrayList;
 

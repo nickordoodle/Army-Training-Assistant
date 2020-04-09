@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant.ui.main;
+package com.example.armytrainingassistant.Model;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

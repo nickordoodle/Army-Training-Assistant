@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant;
+package com.example.armytrainingassistant.Email;
 
 import java.security.AccessController;
 import java.security.Provider;

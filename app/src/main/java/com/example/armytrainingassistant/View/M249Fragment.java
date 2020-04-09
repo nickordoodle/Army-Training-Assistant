@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant.ui.main;
+package com.example.armytrainingassistant.View;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,15 +18,15 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
 /**
  * A Scores fragment containing a simple view.
  */
-public class M240Fragment extends Fragment implements OnPageChangeListener, OnLoadCompleteListener,
+public class M249Fragment extends Fragment implements OnPageChangeListener, OnLoadCompleteListener,
         OnPageErrorListener {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
-    private static final String FILE_NAME = "m240_qual.pdf";
+    private static final String FILE_NAME = "m249_qual.pdf";
     private PDFView pdfView;
 
-    public static M240Fragment newInstance(int index) {
-        M240Fragment fragment = new M240Fragment();
+    public static M249Fragment newInstance(int index) {
+        M249Fragment fragment = new M249Fragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARG_SECTION_NUMBER, index);
         fragment.setArguments(bundle);

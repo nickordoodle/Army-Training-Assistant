@@ -1,4 +1,4 @@
-package com.example.armytrainingassistant.ui.main;
+package com.example.armytrainingassistant.View;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,14 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.armytrainingassistant.Trainee;
-import com.example.armytrainingassistant.MainActivity;
+import com.example.armytrainingassistant.Model.Trainee;
+import com.example.armytrainingassistant.Activities.MainActivity;
 import com.example.armytrainingassistant.R;
+import com.example.armytrainingassistant.Model.PageViewModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.SetOptions;
 
 import static android.content.ContentValues.TAG;
 
