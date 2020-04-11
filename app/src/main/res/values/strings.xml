@@ -9,6 +9,12 @@
     <string name="regulation">Regulation</string>
     <string name="title_activity_saved_ranges">SavedRangesActivity</string>
 
+    /* Start Activity */
+    <string name="machine_gun_button">M240/M249 Range</string>
+    <string name="m4_m16_button">M4/M16 Range</string>
+    <string name="m9_m17_range_button">M9/M17 Range</string>
+    <string name="m320_m203_range_button">M320/M203 Range</string>
+
     /*
     Strings for the new Shooter fragment
     */

@@ -7,44 +7,132 @@
 
     <include layout="@layout/app_bar_no_tabs"/>
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:weightSum="2"
         android:layout_below="@id/app_bar_no_tabs"
         android:layout_margin="@dimen/activity_horizontal_margin">
 
         <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/machine_gun_button"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:src="@mipmap/machine_gun_hollow_fill"
                 android:layout_column="1"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:layout_margin="10dp"
-                android:background="@drawable/imagebutton_border"/>
+                android:layout_gravity="center"
+                android:background="@drawable/imagebutton_border"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/m4_m16_range_button"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/machine_gun_hollow_fill"
+                android:layout_column="2"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/imagebutton_border"
+                android:layout_weight="1"/>
 
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textColor="@color/colorPrimary"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="@string/machine_gun_button"
+            android:layout_column="1"
+            android:layout_weight="1"/>
 
-                android:textStyle="bold"
-                android:text="M240/M249 Range"
-                android:layout_column="1" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="@string/m4_m16_button"
+            android:layout_column="2"
+            android:layout_weight="1"/>
+    </TableRow>
 
-        </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
+        <ImageButton
+            android:id="@+id/m9_m17_range_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/machine_gun_hollow_fill"
+            android:layout_column="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/imagebutton_border"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/m320_m203_range_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/machine_gun_hollow_fill"
+            android:layout_column="2"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/imagebutton_border"
+            android:layout_weight="1"/>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="@string/m9_m17_range_button"
+            android:layout_column="1"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:text="@string/m320_m203_range_button"
+            android:layout_column="2"
+            android:layout_weight="1"/>
+    </TableRow>
 
     </TableLayout>
 
