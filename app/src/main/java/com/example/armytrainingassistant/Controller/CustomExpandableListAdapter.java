@@ -77,6 +77,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
             case 6 :
                 return current.getScore();
 
+            case 7 :
+                return current.getDateOfRange();
+
             default :
                 return null;
         }
@@ -126,6 +129,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                 String scoretoText = Integer.toString(currentGunner.getScore());
                 expandedListText = score + scoretoText;
                 break;
+            case 7 :
+                String date = "Date: ";
+                expandedListText = date + currentGunner.getDateOfRange();
+                break;
             default:
                 expandedListText = null;
                 break;
@@ -145,7 +152,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int listPosition) {
-        return 7;
+        return 8;
     }
 
     @Override
@@ -186,15 +193,11 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int listPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
-        String rank = this.soldierTrainingList
-                .get(listPosition)
-                .getRank();
-        String lastName = this.soldierTrainingList
-                .get(listPosition)
-                .getLastName();
-        int score = this.soldierTrainingList
-                .get(listPosition)
-                .getScore();
+        Trainee trainee = this.soldierTrainingList.get(listPosition);
+        String rank = trainee.getRank();
+        String lastName = trainee.getLastName();
+        int score = trainee.getScore();
+
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);

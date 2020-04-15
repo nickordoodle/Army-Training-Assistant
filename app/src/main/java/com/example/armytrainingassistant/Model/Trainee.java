@@ -1,5 +1,8 @@
 package com.example.armytrainingassistant.Model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Trainee {
 
     private String lastName;
@@ -9,6 +12,7 @@ public class Trainee {
     private String rank;
     private String weaponSystem;
     private int score;
+    private String dateOfRange;
 
     public Trainee() {
 
@@ -17,7 +21,7 @@ public class Trainee {
 
     public Trainee(String lastName, String firstName,
                    String company, String battalion,
-                   String rank, String weaponSystem, int score) {
+                   String rank, String weaponSystem, int score, String dateOfRange) {
         this.lastName = lastName.toUpperCase();
         this.firstName = firstName.toUpperCase();
         this.company = company.toUpperCase();
@@ -25,6 +29,7 @@ public class Trainee {
         this.rank = rank.toUpperCase();
         this.weaponSystem = weaponSystem;
         this.score = score;
+        this.dateOfRange = dateOfRange;
     }
 
 
@@ -82,6 +87,14 @@ public class Trainee {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getDateOfRange() {
+        return dateOfRange;
+    }
+
+    public void setDateOfRange(String dateOfRange) {
+        this.dateOfRange = dateOfRange;
     }
 
     @Override

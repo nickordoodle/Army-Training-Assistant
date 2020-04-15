@@ -23,6 +23,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static android.content.ContentValues.TAG;
 
 /**
@@ -81,6 +84,9 @@ public class NewTraineeFragment extends Fragment {
 
                 //validate all inputs and then submit and populate array
                 if(validateInput()){
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    Date today = new Date();
+                    String dateOfRange = formatter.format(today);
 
                     final Trainee newShooter = new Trainee(
                             lastNameEditText.getText().toString(),
@@ -89,7 +95,8 @@ public class NewTraineeFragment extends Fragment {
                             battalionEditText.getText().toString(),
                             rankSpinner.getSelectedItem().toString(),
                             weaponSpinner.getSelectedItem().toString(),
-                            Integer.parseInt(scoreEditText.getText().toString())
+                            Integer.parseInt(scoreEditText.getText().toString()),
+                            dateOfRange
                     );
 
                     Log.d(TAG, "DocumentSnapshot added with ID: " + MainActivity.user.getUid());
