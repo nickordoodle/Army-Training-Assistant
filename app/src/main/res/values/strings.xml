@@ -14,6 +14,8 @@
     <string name="m4_m16_button">M4/M16 Range</string>
     <string name="m9_m17_range_button">M9/M17 Range</string>
     <string name="m320_m203_range_button">M320/M203 Range</string>
+    <string name="footer_start_activity">All information extracted from U.S. Army Doctrine\n
+        Created for Soldiers, Made by Soldiers</string>
 
     /*
     Strings for the new Shooter fragment
@@ -43,7 +45,7 @@
 
 
     /* Qualification fragment strings */
-    <string name="footer">All information extracted from TC 3-22.240/249.\n
+    <string name="footer_main_activity">All information extracted from TC 3-22.240/249.\n
         Created for Soldiers, Made by Soldiers</string>
     <string name="action_settings">Settings</string>
 

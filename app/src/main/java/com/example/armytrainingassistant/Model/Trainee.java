@@ -1,8 +1,5 @@
 package com.example.armytrainingassistant.Model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Trainee {
 
     private String lastName;

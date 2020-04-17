@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:padding="15dp"
-            android:text="@string/footer"
+            android:text="@string/footer_start_activity"
             android:textAlignment="center"
             android:textColor="@color/cardview_light_background" />
     </RelativeLayout>

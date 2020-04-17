@@ -1,11 +1,10 @@
 package com.example.armytrainingassistant.Activities;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,31 +17,26 @@ public class StartActivity extends AppCompatActivity {
     private ImageButton pistolGunRangeButton;
     private ImageButton grenadeGunRangeButton;
 
+    private RelativeLayout machineGunRangeLayout;
+    private RelativeLayout rifleGunRangeLayout;
+    private RelativeLayout pistolGunRangeLayout;
+    private RelativeLayout grenadeGunRangeLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        machineGunRangeButton = (ImageButton) findViewById(R.id.machine_gun_button);
-        rifleGunRangeButton = (ImageButton) findViewById(R.id.m4_m16_gun_range_button);
-        pistolGunRangeButton = (ImageButton) findViewById(R.id.m9_m17_range_button);
-        grenadeGunRangeButton = (ImageButton) findViewById(R.id.m320_m203_range_button);
-
         //TODO Create new range button icons
-
         Intent mainActivityIntent = new Intent(StartActivity.this, MainActivity.class);
 
-        machineGunRangeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        machineGunRangeLayout = (RelativeLayout) findViewById(R.id.machine_gun_range_grid_relative_layout) ;
+        rifleGunRangeLayout = (RelativeLayout) findViewById(R.id.rifle_gun_range_grid_relative_layout) ;
+        pistolGunRangeLayout = (RelativeLayout) findViewById(R.id.pistol_gun_range_grid_relative_layout) ;
+        grenadeGunRangeLayout = (RelativeLayout) findViewById(R.id.grenade_launcher_range_grid_relative_layout) ;
 
-                //TODO Add extra activity designator to determine which type of range
-                startActivity(mainActivityIntent);
-            }
-        });
-
-        rifleGunRangeButton.setOnClickListener(new View.OnClickListener() {
+        machineGunRangeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO Add extra activity designator to determine which type of range
@@ -50,7 +44,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
-        pistolGunRangeButton.setOnClickListener(new View.OnClickListener() {
+        rifleGunRangeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO Add extra activity designator to determine which type of range
@@ -58,7 +52,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
-        grenadeGunRangeButton.setOnClickListener(new View.OnClickListener() {
+        pistolGunRangeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO Add extra activity designator to determine which type of range
@@ -66,6 +60,13 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        grenadeGunRangeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO Add extra activity designator to determine which type of range
+                startActivity(mainActivityIntent);
+            }
+        });
 
 
     }
