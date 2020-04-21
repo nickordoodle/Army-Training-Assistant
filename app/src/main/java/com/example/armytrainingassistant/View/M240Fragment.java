@@ -44,7 +44,7 @@ public class M240Fragment extends Fragment implements OnPageChangeListener, OnLo
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.m240_fragment_layout, container, false);
+        View root = inflater.inflate(R.layout.qual_fragment_layout, container, false);
 
         //set PDFview and read in pdf from asset using third party library
         pdfView = root.findViewById(R.id.pdfView);

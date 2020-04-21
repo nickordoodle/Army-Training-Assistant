@@ -17,6 +17,11 @@
     <string name="footer_start_activity">All information extracted from U.S. Army Doctrine\n
         Created for Soldiers, Made by Soldiers</string>
 
+    /* Sections Pager Adapter */
+    <string name="qualification_tab">Qual</string>
+    <string name="regulation_tab">TC 3–20.40</string>
+
+
     /*
     Strings for the new Shooter fragment
     */
@@ -45,7 +50,7 @@
 
 
     /* Qualification fragment strings */
-    <string name="footer_main_activity">All information extracted from TC 3-22.240/249.\n
+    <string name="footer_main_activity">All information extracted from TC 3-20.40.\n
         Created for Soldiers, Made by Soldiers</string>
     <string name="action_settings">Settings</string>
 

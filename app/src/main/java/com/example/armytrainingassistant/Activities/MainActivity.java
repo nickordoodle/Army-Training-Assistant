@@ -1,6 +1,7 @@
 package com.example.armytrainingassistant.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -22,6 +23,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
+    private final String FRAGMENT_FILE_KEY_CHOOSER = "fragment_key_chooser";
+
     public static String PACKAGE_NAME;
     public static Context CONTEXT;
     public static FirebaseFirestore db;
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public static String senderEmail;
     public static String senderCred;
     public static FirebaseUser user;
-
+    private SectionsPagerAdapter sectionsPagerAdapter;
     private FirebaseAuth mAuth;
 
 
@@ -50,11 +53,19 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
+
         //create and set adapter
         machineGunnerListAdapter = new CustomExpandableListAdapter(CONTEXT);
-
         Log.d("ADAPTER", "CREATED");
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+
+        //get fileId to create correct fragment
+        try{
+            int fileID = getIntent().getExtras().getInt(FRAGMENT_FILE_KEY_CHOOSER);
+            sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), fileID);
+        } catch(NullPointerException e){
+            Log.d("MainActivity", "fileID is null");
+        }
+
         viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);

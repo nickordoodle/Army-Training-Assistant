@@ -10,7 +10,7 @@
         android:id="@+id/m9_m17_range_button"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@mipmap/machine_gun_hollow_fill"
+        android:src="@mipmap/m17_black_icon"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
         android:layout_margin="10dp"
@@ -24,7 +24,7 @@
         android:layout_below="@+id/m9_m17_range_button"
         android:gravity="center_horizontal"
         android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorBlack"
         android:textStyle="bold"
         android:text="@string/m9_m17_range_button" />
 

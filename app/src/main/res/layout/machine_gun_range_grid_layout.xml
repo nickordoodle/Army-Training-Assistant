@@ -24,7 +24,7 @@
         android:layout_below="@+id/machine_gun_button"
         android:gravity="center_horizontal"
         android:textSize="20sp"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorBlack"
         android:textStyle="bold"
         android:text="@string/machine_gun_button" />
 
